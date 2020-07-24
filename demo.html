@@ -2,317 +2,352 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>eCard</title>
 </head>
-<body>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Playfair+Display:900">
-<div class="wrapper">
-  
-  <div class="left">
-    <div class="front">
-      <div class="sectionWrap">
-        <h1>Title</h1>
-        <hr>
-        <p class="preview">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-        <button class="openB"><p>read more...</p></button>
-      </div>
-    </div>
-    <div class="back">
-      <div class="sectionWrap">
-      <h1>Left</h1>
-        <hr>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata</p>
-      </div>
-    </div>
-  </div>
-  <div class="middle">
-    <div class="sectionWrap">
-      <h1>Middle</h1>
-        <hr>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata</p>
-    </div>
-  </div>
-  <div class="right">
-    <div class="sectionWrap">
-      <h1>Right</h1>
-        <hr>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata</p>
-    </div>
-    <button class="closeB">X</button>
-  </div>
-</div>
-<div id="text">
 
+<body>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&family=Lobster&family=Pacifico&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<div class="wrapper">
+    <div class="container">
+        <div class="item itemOne">
+            <div class="toName">Hi</div>
+            <div class="content">This is best wishes to you from our team member #1. Hope you all the best!</div>
+            <div class="fromName">- One</div>
+        </div>
+        <div class="item itemTwo">
+            <div class="toName">Hi</div>
+            <div class="content">This is best wishes to you from our team member #2</div>
+            <div class="fromName">- Two</div>
+        </div>
+        <div class="item itemThree">
+            <div class="toName">Hi</div>
+            <div class="content">This is best wishes to you from our team member #3</div>
+            <div class="fromName">- Three</div>
+        </div>
+        <div class="item itemFour">
+            <div class="toName">Hi</div>
+            <div class="content">This is best wishes to you from our team member #4</div>
+            <div class="fromName">- Four</div>
+        </div>
+    </div>
+    <div class="left">
+        <div class="front">
+            <div class="sectionWrap">
+<!--                <img src="./farewell.png">-->
+                <button class="openB">
+                    <div>Open</div>
+                </button>
+            </div>
+        </div>
+        <div class="back">
+        </div>
+    </div>
+    <div class="middle">
+    </div>
+    <div class="right">
+        <button class="closeB">X</button>
+    </div>
+</div>
 </div>
 </body>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  -->
-<script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<!-- <script src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script> -->
 <script>
+    $(function () {
+        $(".openB").click(function () {
+            $(".left").addClass("open");
+            setTimeout(function () {
+                $(".right").addClass("open");
+            }, 250);
+            setTimeout(function () {
+                $(".back").addClass("open");
+            }, 350);
+            setTimeout(function () {
+                $(".itemOne").addClass("open");
+            }, 1550);
+            setTimeout(function () {
+                $(".itemTwo").addClass("open");
+            }, 2550);
+            setTimeout(function () {
+                $(".itemThree").addClass("open");
+            }, 3550);
+            setTimeout(function () {
+                $(".itemFour").addClass("open");
+            }, 4550);
+        });
 
-  $(function(){
-  $(".openB").click(function(){
-    $(".left").addClass("open");
-    setTimeout(function(){
-      $(".right").addClass("open");
-    }, 250);
-    setTimeout(function(){
-      $(".back").addClass("open");
-    }, 350);
-  });
-
-  $(".closeB").click(function(){
-    setTimeout(function(){
-      $(".left").removeClass("open");
-    }, 250);
-    $(".right").removeClass("open");
-    setTimeout(function(){
-      $(".back").removeClass("open");
-    }, 600);
-  });
-});
-  let divTyping = document.getElementById('text')
-  let i = 0,
-    timer = 0,
-    str = '用JS实现动态打字效果'
-
-  function typing () {
-    if (i <= str.length) {
-      divTyping.innerHTML = str.slice(0, i++) + '_'
-      timer = setTimeout(typing, 200)
-    }
-    else {
-      divTyping.innerHTML = str//结束打字,移除 _ 光标
-      clearTimeout(timer)
-    }
-  }
-
-  typing()
+        $(".closeB").click(function () {
+            $(".itemOne").removeClass("open");
+            $(".itemTwo").removeClass("open");
+            $(".itemThree").removeClass("open");
+            $(".itemFour").removeClass("open");
+            let id = window.setTimeout(function () {
+            }, 0);
+            while (id--) {
+                window.clearTimeout(id);
+            }
+            setTimeout(function () {
+                $(".left").removeClass("open");
+            }, 250);
+            $(".right").removeClass("open");
+            setTimeout(function () {
+                $(".back").removeClass("open");
+            }, 600);
+        });
+    });
 </script>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-<style type="text/css">* {
-  margin: 0;
-  padding: 0;
-}
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: rgba(17, 126, 104, 1);
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    rgba(17, 126, 104, 1) 0%,
-    rgba(17, 126, 104, 1) 25%,
-    rgba(1, 81, 54, 1) 100%
-  );
-  background: -webkit-gradient(
-    radial,
-    center center,
-    0px,
-    center center,
-    100%,
-    color-stop(0%, rgba(17, 126, 104, 1)),
-    color-stop(25%, rgba(17, 126, 104, 1)),
-    color-stop(100%, rgba(1, 81, 54, 1))
-  );
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    rgba(17, 126, 104, 1) 0%,
-    rgba(17, 126, 104, 1) 25%,
-    rgba(1, 81, 54, 1) 100%
-  );
-  background: -o-radial-gradient(
-    center,
-    ellipse cover,
-    rgba(17, 126, 104, 1) 0%,
-    rgba(17, 126, 104, 1) 25%,
-    rgba(1, 81, 54, 1) 100%
-  );
-  background: -ms-radial-gradient(
-    center,
-    ellipse cover,
-    rgba(17, 126, 104, 1) 0%,
-    rgba(17, 126, 104, 1) 25%,
-    rgba(1, 81, 54, 1) 100%
-  );
-  background: radial-gradient(
-    ellipse at center,
-    rgba(17, 126, 104, 1) 0%,
-    rgba(17, 126, 104, 1) 25%,
-    rgba(1, 81, 54, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(
-      startColorstr='#117e68',
-      endColorstr='#015136',
-      GradientType=1
-    );
-}
-.wrapper {
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  -webkit-perspective: 2000px;
-  padding: 5%;
-  perspective: 2000px;
-}
-.left, .middle, .right {
-  float: left;
-  position: relative;
-  height: 100%;
-  background-color: #fff;
-  width: 33%;
-}
-.left {
-  transform-origin: 100% 50%;
-  transform: rotateY(180deg);
-  transition: .7s ease-in-out;
-  z-index: 20;
-}
-.left.open {
-  transform-origin: 100% 50%;
-  transform: rotateY(0deg);
-  transition: .7s ease-in-out;
-}
-.right {
-  transform-origin: 0% 50%;
-  transform: rotateY(-180deg);
-  transition: .7s ease-in-out;
-}
-.right.open {
-  transform-origin: 0% 50%;
-  transform: rotateY(0deg);
-  transition: .7s ease-in-out;
-}
-.front, .back {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-}
-.front {
-  transform: rotateY(180deg);
-  background-color: #fff;
-  z-index: 5;
-}
-.back {
-  background-color: #fff;
-  z-index: 4;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.back.open {
-  z-index: 10;
-}
-.openB {
-  background-color: transparent;
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  padding: 5px;
-  position: absolute;
-  min-width: 120px;
-  max-width: 150px;
-  z-index: 50;
-  bottom: 30px;
-  font-weight: 400;
-  font-size: 1em;
-  opacity: .7;
-  transition: .2s ease-in-out;
-  cursor: pointer;
-}
-.openB:hover {
-  background-color: rgba(0, 0, 0, 1);
-  color: white;
-  transition: .2s ease-in-out;
-}
-.closeB {
-  position: absolute;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  z-index: 50;
-  width: 50px;
-  font-size: 1.5em;
-  cursor: pointer;
-  height: 50px;
-  top: 0;
-  right: 0;
-  transition: .2s ease-in-out;
-}
-.closeB:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: .2s ease-in-out;
-}
-.preview {
-  max-height: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  content: "";
-  position: relative;
-  display: block;
-}
-.preview:before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: linear-gradient(transparent, white);
-}
-.sectionWrap {
-  height: 100%;
-  width: 100%;
-  padding: 40px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3em;
-  line-height: 1;
-  color: #34495e;
-}
-p {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.2em;
-  max-height: 100px;
-  text-overflow: clip;
-}
-hr {
-  border: 3px solid #34495e;
-  width: 30px;
-  margin: 12px 0 8px 1px;
-  text-align: left;
-}
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  left: 0;
-  box-sizing: border-box;
-  padding-right: 30px;
-}
-footer img {
-  height: 50px;
-  filter: invert(100%);
-  float: left;
-}
-footer p {
-  margin-top: 13px;
-}
-footer a {
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-  width: 250px;
-  float: right;
-  opacity: 1;
-  transition: .2s ease-in-out;
-}
-footer a:hover {
-  opacity: .6;
-  transition: .2s ease-in-out;
-}
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: rgba(0, 125, 186, 1);
+        background: -moz-radial-gradient(center,
+        ellipse cover,
+        rgba(0, 125, 186, 1) 0%,
+        rgba(0, 125, 186, 1) 25%,
+        rgba(0, 65, 101, 1) 100%);
+        background: -webkit-gradient(radial,
+        center center,
+        0px,
+        center center,
+        100%,
+        color-stop(0%, rgba(0, 125, 186, 1)),
+        color-stop(25%, rgba(0, 125, 186, 1)),
+        color-stop(100%, rgba(0, 65, 101, 1)));
+        background: -webkit-radial-gradient(center,
+        ellipse cover,
+        rgba(0, 125, 186, 1) 0%,
+        rgba(0, 125, 186, 1) 25%,
+        rgba(0, 65, 101, 1) 100%);
+        background: -o-radial-gradient(center,
+        ellipse cover,
+        rgba(0, 125, 186, 1) 0%,
+        rgba(0, 125, 186, 1) 25%,
+        rgba(0, 65, 101, 1) 100%);
+        background: -ms-radial-gradient(center,
+        ellipse cover,
+        rgba(0, 125, 186, 1) 0%,
+        rgba(0, 125, 186, 1) 25%,
+        rgba(0, 65, 101, 1) 100%);
+        background: radial-gradient(ellipse at center,
+        rgba(0, 125, 186, 1) 0%,
+        rgba(0, 125, 186, 1) 25%,
+        rgba(0, 65, 101, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#117e68',
+        endColorstr='#015136',
+        GradientType=1);
+    }
+
+    .wrapper {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        min-width: 960px;
+        min-height: 768px;
+        -webkit-perspective: 2000px;
+        padding: 5%;
+        perspective: 2000px;
+    }
+
+    .left,
+    .middle,
+    .right {
+        float: left;
+        position: relative;
+        height: 100%;
+        background-color: #f3ece2;
+        width: 33%;
+    }
+
+    .left {
+        transform-origin: 100% 50%;
+        transform: rotateY(180deg);
+        transition: .7s ease-in-out;
+        z-index: 20;
+        box-shadow: -5px 5px 5px 0 #444;
+    }
+
+    .left.open {
+        transform-origin: 100% 50%;
+        transform: rotateY(0deg);
+        transition: .7s ease-in-out;
+    }
+
+    .right {
+        transform-origin: 0% 50%;
+        transform: rotateY(-180deg);
+        transition: .7s ease-in-out;
+        box-shadow: 5px 5px 5px 0 #444;
+    }
+
+    .middle {
+        box-shadow: 5px 5px 5px 0 #444;
+    }
+
+    .right.open {
+        transform-origin: 0% 50%;
+        transform: rotateY(0deg);
+        transition: .7s ease-in-out;
+    }
+
+    .front,
+    .back {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+
+    .front {
+        transform: rotateY(180deg);
+        background: url("farewell.png");
+        background-size: 100% 100%;
+        z-index: 5;
+    }
+
+    .back {
+        background-color: #f3ece2;
+        z-index: 4;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .back.open {
+        z-index: 10;
+    }
+
+    .openB {
+        background-color: transparent;
+        border: 2px solid rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        position: absolute;
+        min-width: 120px;
+        max-width: 150px;
+        z-index: 50;
+        bottom: 30px;
+        right: 40px;
+        font-weight: 400;
+        font-size: 1em;
+        opacity: .7;
+        transition: .2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .openB:hover {
+        background-color: rgba(0, 65, 101, 1);
+        color: white;
+        transition: .2s ease-in-out;
+    }
+
+    .closeB {
+        position: absolute;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        z-index: 50;
+        width: 50px;
+        font-size: 1.5em;
+        cursor: pointer;
+        height: 50px;
+        top: 0;
+        right: 0;
+        transition: .2s ease-in-out;
+    }
+
+    .closeB:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: .2s ease-in-out;
+    }
+
+    .preview {
+        /*font-family: 'Lobster';*/
+        max-height: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        content: "";
+        position: relative;
+        display: block;
+    }
+
+    .preview:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: linear-gradient(transparent, white);
+    }
+
+    .sectionWrap {
+        height: 100%;
+        width: 100%;
+        padding: 40px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    h1 {
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 3em;
+        line-height: 1;
+        color: #34495e;
+    }
+
+    .container {
+        position: absolute;
+        z-index: 99;
+        width: 80%;
+        margin: 5% 5%;
+    }
+
+    .item {
+        width: 30%;
+        font-size: 1.2em;
+        max-height: 100px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 2.5s linear;
+    }
+
+    .item.open {
+        visibility: visible;
+        opacity: 1
+    }
+
+    .itemOne {
+        font-family: 'Lobster', cursive;
+        transform: rotate(-5deg);
+    }
+
+    .itemTwo {
+        font-family: 'Dancing Script', cursive;
+        transform: rotate(-25deg);
+        margin-left: 50%;
+    }
+
+    .itemThree {
+        font-family: 'Indie Flower', cursive;
+        transform: rotate(5deg);
+    }
+
+    .itemFour {
+        font-family: 'Pacifico', cursive;
+        transform: rotate(15deg);
+        margin: 10% 0 0 50%;
+    }
+
+    .fromName {
+        text-align: right;
+    }
+
 </style>
+
 </html>
